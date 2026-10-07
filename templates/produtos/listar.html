@@ -1,0 +1,12 @@
+{% extends "base_menu.html" %}
+{% block title %}Produtos{% endblock %}
+{% block content %}
+<div class="page-header"><div><h1>Listagem de Produtos</h1><p>Produtos disponíveis no pet shop.</p></div><a class="btn primary" href="{{ url_for('cadastrar_produto') }}">+ Novo produto</a></div>
+<div class="table-card"><table>
+<thead><tr><th>Produto</th><th>Categoria</th><th>Marca</th><th>Preço</th><th>Estoque</th><th>Fornecedor</th></tr></thead>
+<tbody>
+{% for p in produtos %}
+<tr><td>{{ p.nome }}</td><td>{{ p.categoria }}</td><td>{{ p.marca or '-' }}</td><td>R$ {{ '%.2f'|format(p.preco) }}</td><td>{{ p.estoque }}</td><td>{{ p.fornecedor or '-' }}</td></tr>
+{% else %}<tr><td colspan="6" class="empty">Nenhum produto cadastrado.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

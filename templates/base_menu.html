@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PetShop Manager{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand"><a href="{{ url_for('index') }}">PetShop Manager</a></div>
+    <nav>
+        <div class="dropdown">
+            <button class="nav-button">Usuários ▾</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('listar_usuarios') }}">Listagem de Usuários</a>
+                <a href="{{ url_for('cadastrar_usuario') }}">Cadastro de Usuários</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="nav-button">Produtos ▾</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('listar_produtos') }}">Listagem de Produtos</a>
+                <a href="{{ url_for('cadastrar_produto') }}">Cadastro de Produtos</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="nav-button">Serviços ▾</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('listar_servicos') }}">Listagem de Serviços</a>
+                <a href="{{ url_for('cadastrar_servico') }}">Cadastro de Serviços</a>
+            </div>
+        </div>
+    </nav>
+    <a class="logout" href="{{ url_for('sem_menu') }}">Sair</a>
+</header>
+
+<main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</main>
+
+<footer>Trabalho Programação para internet - Diego Callegari e Marcelo Bueno</footer>
+</body>
+</html>

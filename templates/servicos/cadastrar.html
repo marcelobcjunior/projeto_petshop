@@ -1,0 +1,12 @@
+{% extends "base_menu.html" %}
+{% block title %}Cadastro de Serviços{% endblock %}
+{% block content %}
+<div class="form-card">
+<div class="page-header compact"><div><h1>Cadastro de Serviços</h1><p>Cadastre banho, tosa, consulta, hospedagem e outros serviços.</p></div></div>
+<form method="POST">
+<div class="grid-2"><label>Nome:<input name="nome" required></label><label>Responsável:<input name="responsavel"></label></div>
+<label>Descrição:<textarea name="descricao" rows="4"></textarea></label>
+<div class="grid-2"><label>Preço:<input type="number" step="0.01" min="0" name="preco" required></label><label>Duração (minutos):<input type="number" min="1" name="duracao" required></label></div>
+<div class="form-actions"><a href="{{ url_for('listar_servicos') }}">Voltar</a><button type="reset" class="btn secondary">Limpar</button><button type="submit" class="btn success">Salvar</button></div>
+</form></div>
+{% endblock %}

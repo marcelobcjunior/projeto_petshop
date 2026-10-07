@@ -1,0 +1,27 @@
+{% extends "base_menu.html" %}
+{% block title %}Usuários{% endblock %}
+{% block content %}
+<div class="page-header">
+    <div><h1>Listagem de Usuários</h1><p>Usuários cadastrados no sistema.</p></div>
+    <a class="btn primary" href="{{ url_for('cadastrar_usuario') }}">+ Novo usuário</a>
+</div>
+
+<div class="table-card">
+<table>
+<thead><tr>
+<th>Nome</th><th>Email</th><th>Celular</th><th>CPF</th><th>Nível de acesso</th><th>Cidade/UF</th>
+</tr></thead>
+<tbody>
+{% for u in usuarios %}
+<tr>
+<td>{{ u.nome }}</td><td>{{ u.email }}</td><td>{{ u.celular or '-' }}</td>
+<td>{{ u.cpf or '-' }}</td><td><span class="badge">{{ u.nivel_acesso }}</span></td>
+<td>{{ u.cidade or '-' }}/{{ u.estado or '-' }}</td>
+</tr>
+{% else %}
+<tr><td colspan="6" class="empty">Nenhum usuário cadastrado.</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}

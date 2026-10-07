@@ -1,0 +1,12 @@
+{% extends "base_menu.html" %}
+{% block title %}Serviços{% endblock %}
+{% block content %}
+<div class="page-header"><div><h1>Listagem de Serviços</h1><p>Serviços oferecidos pelo pet shop.</p></div><a class="btn primary" href="{{ url_for('cadastrar_servico') }}">+ Novo serviço</a></div>
+<div class="table-card"><table>
+<thead><tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Duração</th><th>Responsável</th></tr></thead>
+<tbody>
+{% for s in servicos %}
+<tr><td>{{ s.nome }}</td><td>{{ s.descricao or '-' }}</td><td>R$ {{ '%.2f'|format(s.preco) }}</td><td>{{ s.duracao }} min</td><td>{{ s.responsavel or '-' }}</td></tr>
+{% else %}<tr><td colspan="5" class="empty">Nenhum serviço cadastrado.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

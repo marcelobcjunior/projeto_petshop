@@ -1,0 +1,12 @@
+{% extends "base_menu.html" %}
+{% block title %}Cadastro de Produtos{% endblock %}
+{% block content %}
+<div class="form-card">
+<div class="page-header compact"><div><h1>Cadastro de Produtos</h1><p>Cadastre rações, brinquedos, acessórios e outros produtos.</p></div></div>
+<form method="POST">
+<div class="grid-2"><label>Nome:<input name="nome" required></label><label>Categoria:<input name="categoria" required></label></div>
+<div class="grid-2"><label>Marca:<input name="marca"></label><label>Fornecedor:<input name="fornecedor"></label></div>
+<div class="grid-2"><label>Preço:<input type="number" step="0.01" min="0" name="preco" required></label><label>Estoque:<input type="number" min="0" name="estoque" required></label></div>
+<div class="form-actions"><a href="{{ url_for('listar_produtos') }}">Voltar</a><button type="reset" class="btn secondary">Limpar</button><button type="submit" class="btn success">Salvar</button></div>
+</form></div>
+{% endblock %}

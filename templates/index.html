@@ -1,0 +1,17 @@
+{% extends "base_menu.html" %}
+{% block title %}Início — PetShop Manager{% endblock %}
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="eyebrow">SISTEMA DE GERENCIAMENTO</p>
+        <h1>PetShop Manager</h1>
+        <p>Controle usuários, produtos e serviços do seu pet shop em um único lugar.</p>
+    </div>
+</section>
+
+<div class="cards">
+    <div class="card"><span>Usuários</span><strong>{{ total_usuarios }}</strong><a href="{{ url_for('listar_usuarios') }}">Ver usuários →</a></div>
+    <div class="card"><span>Produtos</span><strong>{{ total_produtos }}</strong><a href="{{ url_for('listar_produtos') }}">Ver produtos →</a></div>
+    <div class="card"><span>Serviços</span><strong>{{ total_servicos }}</strong><a href="{{ url_for('listar_servicos') }}">Ver serviços →</a></div>
+</div>
+{% endblock %}

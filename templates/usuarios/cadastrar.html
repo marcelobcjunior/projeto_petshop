@@ -1,0 +1,45 @@
+{% extends "base_menu.html" %}
+{% block title %}Cadastro de Usuários{% endblock %}
+{% block content %}
+<div class="form-card">
+    <div class="page-header compact"><div><h1>Cadastro de Usuários</h1><p>Preencha os mesmos dados solicitados no modelo da atividade.</p></div></div>
+    <form method="POST">
+        <div class="grid-2">
+            <label>Nome:<input name="nome" required></label>
+            <label>Email:<input type="email" name="email" required></label>
+        </div>
+        <div class="grid-3">
+            <label>Celular:<input name="celular"></label>
+            <label>Data de Nascimento:<input type="text" name="data_nascimento" placeholder="dd/mm/aaaa"></label>
+            <label>CPF:<input name="cpf"></label>
+        </div>
+        <div class="grid-1">
+            <label>Nível de Acesso:
+                <select name="nivel_acesso" required>
+                    <option value="">-- ESCOLHA --</option><option>Administrador</option><option>Funcionário</option><option>Cliente</option>
+                </select>
+            </label>
+        </div>
+        <div class="grid-3 address">
+            <label>CEP:<input name="cep"></label>
+            <label>Endereço:<input name="endereco"></label>
+            <label>Número:<input name="numero"></label>
+        </div>
+        <div class="grid-3">
+            <label>Complemento:<input name="complemento"></label>
+            <label>Cidade:<input name="cidade"></label>
+            <label>Estado:
+                <select name="estado">
+                    <option value="">-- ESCOLHA --</option>
+                    <option>SP</option><option>RJ</option><option>MG</option><option>PR</option><option>SC</option><option>RS</option>
+                </select>
+            </label>
+        </div>
+        <div class="form-actions">
+            <a href="{{ url_for('listar_usuarios') }}">Voltar</a>
+            <button type="reset" class="btn secondary">Limpar</button>
+            <button type="submit" class="btn success">Salvar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

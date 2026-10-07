@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Acesso — PetShop Manager{% endblock %}
+{% block content %}
+<div class="no-menu-page">
+    <div class="login-box">
+        <div class="logo-circle">🐾</div>
+        <h1>PetShop Manager</h1>
+        <p>Exemplo de template sem menu superior.</p>
+        <a class="btn primary" href="{{ url_for('index') }}">Entrar no sistema</a>
+    </div>
+</div>
+{% endblock %}
